@@ -1,7 +1,5 @@
 <template>
   <div class="recorder">
-    <h2>Webcam Recorder</h2>
-
     <video ref="previewEl" class="preview" autoplay playsinline muted></video>
 
     <div class="controls">
@@ -19,7 +17,7 @@
     </div>
 
     <hr />
-
+<!--
     <h3>Vidéos stockées (IndexedDB)</h3>
 
     <div v-if="records.length === 0" class="empty">Aucune vidéo enregistrée.</div>
@@ -42,6 +40,7 @@
         </div>
       </li>
     </ul>
+    -->
 
     <div v-if="playUrl" class="player">
       <h4>Lecture</h4>
