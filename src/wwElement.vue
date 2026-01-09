@@ -10,6 +10,7 @@
       <button :disabled="busy || !stream" @click="initCamera">
         Réinitialiser caméra
       </button>
+      
 
       <span class="status">
         {{ status }}
@@ -17,7 +18,6 @@
     </div>
 
     <hr />
-<!--
     <h3>Vidéos stockées (IndexedDB)</h3>
 
     <div v-if="records.length === 0" class="empty">Aucune vidéo enregistrée.</div>
@@ -40,7 +40,6 @@
         </div>
       </li>
     </ul>
-    -->
 
     <div v-if="playUrl" class="player">
       <h4>Lecture</h4>
@@ -169,6 +168,7 @@ async function startRecording() {
 
       try {
         const blob = new Blob(chunks.value, { type: r.mimeType || "video/webm" });
+        await idbClearRecords();
         await idbAddRecord({
           createdAt: Date.now(),
           mimeType: blob.type || r.mimeType || "video/webm",
@@ -244,6 +244,22 @@ async function idbAddRecord(record) {
       reject(tx.error);
     };
     tx.objectStore(STORE).add(record);
+  });
+}
+
+async function idbClearRecords() {
+  const db = await idbOpen();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE, "readwrite");
+    const req = tx.objectStore(STORE).clear();
+    req.onsuccess = () => {
+      db.close();
+      resolve();
+    };
+    req.onerror = () => {
+      db.close();
+      reject(req.error);
+    };
   });
 }
 
