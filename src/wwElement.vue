@@ -1,5 +1,6 @@
 <template>
   <div class="recorder">
+    /**
     <video ref="previewEl" class="preview" autoplay playsinline muted></video>
 
     <div class="controls">
@@ -39,7 +40,7 @@
           <button @click="deleteRecord(r.id)">Supprimer</button>
         </div>
       </li>
-    </ul>
+    </ul>*/
 
     <div v-if="playUrl" class="player">
       <h4>Lecture</h4>
