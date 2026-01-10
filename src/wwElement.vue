@@ -16,36 +16,6 @@
         {{ status }}
       </span>
     </div>
-
-    <hr />
-    <h3>Vidéos stockées (IndexedDB)</h3>
-
-    <div v-if="records.length === 0" class="empty">Aucune vidéo enregistrée.</div>
-
-    <ul class="list">
-      <li v-for="r in records" :key="r.id" class="item">
-        <div class="meta">
-          <div class="title">
-            {{ new Date(r.createdAt).toLocaleString() }}
-          </div>
-          <div class="sub">
-            {{ r.mimeType }} — {{ humanBytes(r.size) }}
-          </div>
-        </div>
-
-        <div class="actions">
-          <button @click="playRecord(r.id)">Lire</button>
-          <button @click="downloadRecord(r.id)">Télécharger</button>
-          <button @click="deleteRecord(r.id)">Supprimer</button>
-        </div>
-      </li>
-    </ul>
-
-    <div v-if="playUrl" class="player">
-      <h4>Lecture</h4>
-      <video class="playback" :src="playUrl" controls playsinline></video>
-      <button class="close" @click="closePlayer">Fermer</button>
-    </div>
   </div>
 </template>
 
