@@ -1,6 +1,5 @@
 <template>
   <div class="player">
-    <h4>Lecture</h4>
     <video v-if="playUrl" class="playback" :src="playUrl" controls playsinline></video>
     <div v-else class="empty">{{ status }}</div>
   </div>
