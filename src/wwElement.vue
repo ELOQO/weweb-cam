@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import { onMounted, onBeforeUnmount, ref } from "vue";
+import { defineExpose, onMounted, onBeforeUnmount, ref } from "vue";
 
 /**
  * --- State ---
@@ -177,6 +177,15 @@ function toggleRecording() {
   if (!isRecording.value) startRecording();
   else stopRecording();
 }
+
+defineExpose({
+  toggleRecording,
+  initCamera,
+  wwActions: {
+    toggleRecording,
+    initCamera
+  }
+});
 
 /**
  * --- IndexedDB persistence ---
