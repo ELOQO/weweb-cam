@@ -3,6 +3,7 @@
     <video ref="previewEl" class="preview" autoplay playsinline muted></video>
 
     <div class="controls">
+<!--
       <button :disabled="busy" @click="toggleRecording">
         {{ isRecording ? "Stop" : "Enregistrer" }}
       </button>
@@ -10,7 +11,7 @@
       <button :disabled="busy || !stream" @click="initCamera">
         Réinitialiser caméra
       </button>
-      
+    -->
 
       <span class="status">
         {{ status }}
