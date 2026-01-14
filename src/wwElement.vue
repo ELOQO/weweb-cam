@@ -178,13 +178,16 @@ function toggleRecording() {
   else stopRecording();
 }
 
+const wwActions = {
+  toggleRecording,
+  initCamera
+};
+
 defineExpose({
   toggleRecording,
   initCamera,
-  wwActions: {
-    toggleRecording,
-    initCamera
-  }
+  wwActions,
+  actions: wwActions
 });
 
 /**

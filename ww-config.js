@@ -4,20 +4,22 @@ export default {
       en: "My Element",
     },
   },
-  actions: {
-    toggleRecording: {
+  actions: [
+    {
+      name: "toggleRecording",
       label: {
         en: "Toggle recording",
         fr: "Demarrer/arreter l'enregistrement",
       },
     },
-    initCamera: {
+    {
+      name: "initCamera",
       label: {
         en: "Initialize camera",
         fr: "Initialiser la camera",
       },
     },
-  },
+  ],
   properties: {
     textColor: {
       label: {
